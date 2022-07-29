@@ -3,7 +3,11 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 
 const app = express()
-app.use(cors()) // vai criar uma lógica para usar cors
+app.use(cors({ 
+    credentials: true, 
+    origin: "*", 
+    optionsSuccessStatus: 200 
+})) 
 app.use(express.json())
 
 require('./src/routes/route')(app);
